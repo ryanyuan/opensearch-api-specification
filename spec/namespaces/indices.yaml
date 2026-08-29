@@ -2040,6 +2040,7 @@ components:
                 type: array
                 items:
                   $ref: '../schemas/indices.modify_data_stream.yaml#/components/schemas/Action'
+                minItems: 1
             required:
               - actions
             description: The data stream modify actions.

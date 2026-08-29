@@ -68,6 +68,11 @@ epilogues:
   - path: /_index_template/logs-template-attach
     method: DELETE
     status: [200, 404]
+  - path: /_snapshot/{repository}
+    method: DELETE
+    status: [200, 404]
+    parameters:
+      repository: my-fs-repository
 chapters:
   - synopsis: Restore a backing index and attach it to its data stream.
     path: /_snapshot/{repository}/{snapshot}/_restore

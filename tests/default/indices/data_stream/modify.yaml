@@ -3,13 +3,12 @@ $schema: ../../../../json_schemas/test_story.schema.yaml
 description: Test modifying the backing indexes of a data stream.
 version: '>= 3.8'
 prologues:
-  - path: /_index_template/logs-template-nginx
+  - path: /_index_template/logs-template-modify
     method: PUT
     request:
       payload:
         index_patterns:
-          - logs-*
-          - my-data-stream
+          - logs-modify*
         data_stream:
           timestamp_field:
             name: request_time
@@ -23,6 +22,9 @@ epilogues:
     method: DELETE
     status: [200, 404]
   - path: /.ds-logs-modify-000001
+    method: DELETE
+    status: [200, 404]
+  - path: /_index_template/logs-template-modify
     method: DELETE
     status: [200, 404]
 chapters:
