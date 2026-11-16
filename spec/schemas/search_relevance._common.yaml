@@ -71,6 +71,10 @@ components:
           type: integer
         type:
           type: string
+          enum:
+            - PAIRWISE_COMPARISON
+      required:
+        - type
     PutHybridOptimizerExperimentRequest:
       type: object
       description: The schema for a hybrid optimizer experiment.
@@ -89,6 +93,10 @@ components:
           type: integer
         type:
           type: string
+          enum:
+            - HYBRID_OPTIMIZER
+      required:
+        - type
     PutPointwiseExperimentRequest:
       type: object
       description: The schema for a pointwise experiment.
@@ -107,6 +115,10 @@ components:
           type: integer
         type:
           type: string
+          enum:
+            - POINTWISE_EVALUATION
+      required:
+        - type
     PostQuerySetsRequest:
       type: object
       description: The schema for creating a query set.
@@ -145,6 +157,8 @@ components:
           type: string
         type:
           type: string
+          enum:
+            - LLM_JUDGMENT
         modelId:
           type: string
         querySetId:
@@ -161,6 +175,8 @@ components:
           type: array
           items:
             type: string
+      required:
+        - type
     PutUBIJudgmentsRequest:
       type: object
       description: The schema for a UBI judgment.
@@ -171,10 +187,14 @@ components:
           type: string
         type:
           type: string
+          enum:
+            - UBI_JUDGMENT
         clickModel:
           type: string
         maxRank:
           type: integer
+      required:
+        - type
     PutImportJudgmentsRequest:
       type: object
       description: The schema for an import judgment.
@@ -185,10 +205,14 @@ components:
           type: string
         type:
           type: string
+          enum:
+            - IMPORT_JUDGMENT
         judgmentRatings:
           type: array
           items:
             type: object
+      required:
+        - type
     PutSearchConfigurationRequest:
       type: object
       properties:
